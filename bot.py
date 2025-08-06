@@ -6,11 +6,11 @@ from datetime import datetime
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.pagesizes import A4
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
 load_dotenv()
-TOKEN = os.getenv("DISCORD_BOT_TOKEN")
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.default()
 intents.messages = True
@@ -111,4 +111,5 @@ async def on_message(message):
         await bot.process_commands(message)
 
 # Démarrez votre bot ici
-bot.run("TOKEN")
+print(f"TOKEN DEBUG: {os.getenv('DISCORD_TOKEN')}")
+bot.run(TOKEN)
